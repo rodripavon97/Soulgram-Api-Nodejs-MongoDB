@@ -23,7 +23,7 @@ app.use(express.json())
 
 app.all(
   '/*',
-  expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }).unless({
+  expressjwt({ secret: process.env.SECRET, algorithms: ['sha1', 'RS256', 'HS256'] }).unless({
     path: ['/auth/login', '/auth/register']
   })
 )
